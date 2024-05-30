@@ -76,7 +76,7 @@ const App = () => {
             </TaskbarIcons>
           </div>
           <TaskbarRight>
-            <span>12:00 PM</span>
+            <span>SuperSite V1.0</span>
           </TaskbarRight>
         </StyledTaskbar>
         {startMenuOpen && <StartMenu onOpenApp={openApp} />}
