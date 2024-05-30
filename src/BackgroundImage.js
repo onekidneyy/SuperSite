@@ -6,8 +6,8 @@ const BackgroundImage = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px; /* Adjust the size as needed */
-  height: 400px; /* Adjust the size as needed */
+  width: 380px; /* Adjust the size as needed */
+  height: 380px; /* Adjust the size as needed */
   background-image: url(${image}); /* Use the imported image */
   background-size: cover;
   background-repeat: no-repeat;
