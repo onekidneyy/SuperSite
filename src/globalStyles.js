@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .jeet-icon {
     position: fixed;
-    bottom: 90px; /* Adjust as needed */
+    bottom: 100px; /* Adjust as needed */
     right: 20px; /* Adjust as needed */
     width: 50px; /* Adjust size as needed */
     height: 50px; /* Adjust size as needed */
@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
 
     .jeet-icon {
       position: fixed;
-      bottom: 100px;
+      bottom: 110px;
       right: 20px;
       width: 40px; /* Adjust size for mobile */
       height: 40px; /* Adjust size for mobile */
