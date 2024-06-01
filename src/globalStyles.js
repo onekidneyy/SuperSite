@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
 
     .jeet-icon {
       position: fixed;
-      bottom: 110px;
+      bottom: 105px;
       right: 20px;
       width: 40px; /* Adjust size for mobile */
       height: 40px; /* Adjust size for mobile */
