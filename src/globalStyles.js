@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
   .jeet-icon {
-    position: absolute;
+    position: fixed;
     bottom: 90px; /* Adjust as needed */
     right: 20px; /* Adjust as needed */
     width: 50px; /* Adjust size as needed */
@@ -60,6 +60,29 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  @media (max-width: 768px) {
+    .icon-container {
+      position: fixed;
+      bottom: 80px; /* Keep icons above the taskbar */
+      left: 20px;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .jeet-icon {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 40px; /* Adjust size for mobile */
+      height: 40px; /* Adjust size for mobile */
+    }
+
+    .desktop-icon img {
+      width: 40px; /* Adjust size for mobile */
+      height: 40px; /* Adjust size for mobile */
+    }
+  }
+
   @media (max-height: 600px) {
     .icon-container {
       bottom: 60px; /* Ensure icons stay above the taskbar */
@@ -69,6 +92,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
 
 
 
