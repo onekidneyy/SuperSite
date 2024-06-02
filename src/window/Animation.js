@@ -5,6 +5,7 @@ const Animation = () => {
     const media = [
         { name: 'God Candle', url: '/assets/videos/GodCandle.mp4', type: 'video' },
         { name: 'Hot Chick', url: '/assets/videos/HotChick.mp4', type: 'video' },
+        { name: 'Money Printer', url: '/assets/videos/MoneyPrinter.mp4', type: 'video' },
 
         // Add more media as needed
     ];
