@@ -16,7 +16,6 @@
     padding: 2px 5px;
     position: relative;
     height: 20px;
-    /* Adjust height as needed */
 }
 
 .title-bar-text {
@@ -62,7 +61,6 @@
     background: none;
     border: none;
     font-size: 14px;
-    /* Adjusted to make it smaller */
     cursor: pointer;
     display: flex;
     align-items: center;

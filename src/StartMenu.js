@@ -19,13 +19,13 @@ const StartMenuWrapper = styled.div`
   border: 2px solid #404040;
   z-index: 1000;
   padding: 10px;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px;
 `;
 
 const StyledListItem = styled(List.Item)`
   display: flex;
   align-items: center;
-  margin-bottom: 5px; /* Adjust the gap as needed */
+  margin-bottom: 5px;
   &:hover {
     background-color: #000080;
     color: white;
@@ -33,7 +33,7 @@ const StyledListItem = styled(List.Item)`
 `;
 
 const StyledIcon = styled.img`
-  margin-right: 10px; /* Adjust the gap as needed */
+  margin-right: 10px;
 `;
 
 const StartMenu = ({ onOpenApp }) => (

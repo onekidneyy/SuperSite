@@ -5,20 +5,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #008080; /* Off-blue background color */
+    background-color: #008080;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .icon-container {
     display: flex;
     flex-direction: column;
     position: fixed;
-    bottom: 80px; /* Adjust as needed to be above the taskbar */
-    left: 20px; /* Adjust as needed */
-    gap: 30px; /* Space between rows of icons */
+    bottom: 80px;
+    left: 20px;
+    gap: 30px;
   }
   .icon-row {
     display: flex;
-    gap: 30px; /* Space between icons in a row */
+    gap: 30px;
   }
   .desktop-icon {
     display: flex;
@@ -38,18 +38,18 @@ const GlobalStyle = createGlobalStyle`
   }
   .jeet-icon {
     position: fixed;
-    bottom: 100px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
+    bottom: 100px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
     text-align: center;
     cursor: pointer;
   }
   .jeet-icon img {
     display: block;
     margin: 0 auto;
-    width: 40px; /* Adjust the size as needed */
-    height: 40px; /* Adjust the size as needed */
+    width: 40px;
+    height: 40px;
   }
   .jeet-icon p {
     margin: 5px 0 0;
@@ -63,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
   @media (max-width: 768px) {
     .icon-container {
       position: fixed;
-      bottom: 80px; /* Keep icons above the taskbar */
+      bottom: 80px;
       left: 20px;
       flex-direction: column;
       gap: 20px;
@@ -73,19 +73,19 @@ const GlobalStyle = createGlobalStyle`
       position: fixed;
       bottom: 105px;
       right: 20px;
-      width: 40px; /* Adjust size for mobile */
-      height: 40px; /* Adjust size for mobile */
+      width: 40px;
+      height: 40px;
     }
 
     .desktop-icon img {
-      width: 40px; /* Adjust size for mobile */
-      height: 40px; /* Adjust size for mobile */
+      width: 40px;
+      height: 40px;
     }
   }
 
   @media (max-height: 600px) {
     .icon-container {
-      bottom: 60px; /* Ensure icons stay above the taskbar */
+      bottom: 60px;
       top: unset;
     }
   }

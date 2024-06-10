@@ -20,7 +20,7 @@ import ModalWindow from './window/ModalWindow';
 import Animation from './window/Animation';
 import Meme from './window/Meme';
 import RoadMa from './window/RoadMa';
-import StartMenu from './StartMenu'; // Import the StartMenu component
+import StartMenu from './StartMenu';
 
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -53,7 +53,6 @@ const App = () => {
       case 'RoadMap':
         openModal(<RoadMa />);
         break;
-      // Handle other apps similarly
       default:
         break;
     }

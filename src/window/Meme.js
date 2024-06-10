@@ -87,10 +87,8 @@ const Meme = () => {
                 { name: 'SuperS AI 17', url: '/assets/SuperSAi/SuperSAi17.mp4' },
                 { name: 'SuperS AI 18', url: '/assets/SuperSAi/SuperSAi18.mp4' },
                 { name: 'SuperS AI 19', url: '/assets/SuperSAi/SuperSAi19.mp4' },
-                // Add more videos as needed
             ]
         },
-        // Add more folders as needed
     ];
 
     const [modalIsOpen, setModalIsOpen] = useState(false);

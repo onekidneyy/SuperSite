@@ -4,7 +4,7 @@ export const StyledTaskbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px; /* Match the height of the desktop icons */
+  height: 50px;
   background: #c0c0c0;
   border-top: 2px solid #fff;
   border-left: 2px solid #fff;
@@ -29,8 +29,8 @@ export const TaskbarButton = styled.button`
   }
 
   img {
-    width: 40px; /* Adjust to match desktop icon size */
-    height: 40px; /* Adjust to match desktop icon size */
+    width: 40px;
+    height: 40px;
     margin-right: 5px;
   }
 `;
@@ -46,8 +46,8 @@ export const TaskbarIcons = styled.div`
   align-items: center;
 
   img {
-    width: 40px; /* Adjust to match desktop icon size */
-    height: 40px; /* Adjust to match desktop icon size */
+    width: 40px;
+    height: 40px;
     margin-left: 10px;
   }
 `;
