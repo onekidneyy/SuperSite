@@ -28,7 +28,7 @@ const Animation = () => {
             <div className="window-content">
                 <div className="folder-view">
                     {media.map((item, index) => (
-                        <div key={index} className="folder" onClick={() => openModal(item)}>
+                        <div key={index} className="folder" onClick={() => openModal(item)} onTouchStart={() => openModal(item)}>
                             <video className="file-icon" src={item.url} />
                             <p>{item.name}</p>
                         </div>
@@ -48,10 +48,5 @@ const Animation = () => {
 };
 
 export default Animation;
-
-
-
-
-
 
 

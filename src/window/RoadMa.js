@@ -3,7 +3,6 @@ import ModalWindow from './ModalWindow';
 import '../window/WindowStyles.css';
 import '../styles/FolderView.css';
 
-
 const RoadMa = () => {
     const images = [
         { name: 'RoadMap Page 1', url: '/assets/RoadMap/RoadMap1.png' },
@@ -28,7 +27,7 @@ const RoadMa = () => {
             <div className="window-content">
                 <div className="folder-view">
                     {images.map((image, index) => (
-                        <div key={index} className="folder" onClick={() => openModal(image)}>
+                        <div key={index} className="folder" onClick={() => openModal(image)} onTouchStart={() => openModal(image)}>
                             <img src={image.url} alt={image.name} className="file-icon" />
                             <p>{image.name}</p>
                         </div>
