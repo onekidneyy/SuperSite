@@ -28,6 +28,7 @@
     width: 100px;
     cursor: pointer;
     padding: 5px;
+    /* Ensure touch-friendly area */
 }
 
 .folder img,
@@ -35,6 +36,7 @@
     width: 48px;
     height: 48px;
     pointer-events: none;
+    /* Ensure images do not intercept clicks */
 }
 
 .folder p {
@@ -44,6 +46,7 @@
     color: #000;
     text-align: center;
     pointer-events: none;
+    /* Ensure text does not intercept clicks */
 }
 
 .back-button {

@@ -94,6 +94,7 @@ const Meme = () => {
         },
     ];
 
+
     const [folderModalIsOpen, setFolderModalIsOpen] = useState(false);
     const [imageModals, setImageModals] = useState([]);
     const [currentFolder, setCurrentFolder] = useState(null);
@@ -120,7 +121,12 @@ const Meme = () => {
         <div className="window-content">
             <div className="folder-view">
                 {folders.map((folder, index) => (
-                    <div key={index} className="folder" onClick={() => openFolderModal(folder)}>
+                    <div
+                        key={index}
+                        className="folder"
+                        onClick={() => openFolderModal(folder)}
+                        onTouchEnd={() => openFolderModal(folder)}
+                    >
                         <img src={FolderIcon} alt="Folder Icon" />
                         <p>{folder.name}</p>
                     </div>
@@ -132,7 +138,12 @@ const Meme = () => {
                     <div>
                         <div className="folder-view">
                             {currentFolder.content.map((file, index) => (
-                                <div key={index} className="folder" onClick={() => openImageModal(file)}>
+                                <div
+                                    key={index}
+                                    className="folder"
+                                    onClick={() => openImageModal(file)}
+                                    onTouchEnd={() => openImageModal(file)}
+                                >
                                     <img src={file.url} alt={file.name} className="file-icon" />
                                     <p>{file.name}</p>
                                 </div>
