@@ -27,12 +27,14 @@
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .folder img,
 .folder .file-icon {
     width: 48px;
     height: 48px;
+    pointer-events: none;
 }
 
 .folder p {
@@ -41,6 +43,7 @@
     font-size: 12px;
     color: #000;
     text-align: center;
+    pointer-events: none;
 }
 
 .back-button {
