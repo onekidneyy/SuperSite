@@ -136,6 +136,7 @@ const Meme = () => {
             {folderModalIsOpen && (
                 <ModalWindow onClose={closeFolderModal} title={currentFolder.name}>
                     <div>
+                        <button className="back-button" onClick={closeFolderModal} onTouchEnd={closeFolderModal}>← Back</button>
                         <div className="folder-view">
                             {currentFolder.content.map((file, index) => (
                                 <div
