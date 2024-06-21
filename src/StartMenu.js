@@ -11,6 +11,10 @@ import RoadMapIcon from './assets/icons/RoadMap.png';
 import TelegramIcon from './assets/icons/Telegram.png';
 import JeetIcon from './assets/icons/Jeet.png';
 
+import Animation from './window/Animation';
+import Meme from './window/Meme';
+import RoadMa from './window/RoadMa';
+
 const StartMenuWrapper = styled.div`
   position: absolute;
   bottom: 55px;
@@ -48,7 +52,7 @@ const StartMenu = ({ onOpenApp }) => (
             </StyledListItem>
             <StyledListItem
                 icon={<StyledIcon src={AnimationsIcon} alt="Animations" />}
-                onClick={() => onOpenApp('Animation')}
+                onClick={() => onOpenApp({ component: <Animation />, title: 'Animation' })}
             >
                 Animations
             </StyledListItem>
@@ -62,19 +66,19 @@ const StartMenu = ({ onOpenApp }) => (
             <StyledListItem
                 icon={<StyledIcon src={InstagramIcon} alt="Instagram" />}
             >
-                <a href=" https://www.instagram.com/superscommunity" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a href="https://www.instagram.com/superscommunity" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
                     Instagram
                 </a>
             </StyledListItem>
             <StyledListItem
                 icon={<StyledIcon src={MemesIcon} alt="Memes" />}
-                onClick={() => onOpenApp('Meme')}
+                onClick={() => onOpenApp({ component: <Meme />, title: 'Meme' })}
             >
                 Memes
             </StyledListItem>
             <StyledListItem
                 icon={<StyledIcon src={RoadMapIcon} alt="RoadMap" />}
-                onClick={() => onOpenApp('RoadMap')}
+                onClick={() => onOpenApp({ component: <RoadMa />, title: 'RoadMap' })}
             >
                 RoadMap
             </StyledListItem>
@@ -97,7 +101,6 @@ const StartMenu = ({ onOpenApp }) => (
 );
 
 export default StartMenu;
-
 
 
 

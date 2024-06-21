@@ -4,7 +4,8 @@
     background-color: #c3c3c3;
     font-family: 'MS Sans Serif';
     font-size: 14px;
-    position: relative;
+    position: fixed;
+    z-index: 10;
 }
 
 .title-bar {

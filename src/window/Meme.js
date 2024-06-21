@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ModalWindow from './ModalWindow';
+import FolderIcon from '../assets/icons/Folder.png';
+import './WindowStyles.css';
+import '../styles/FolderView.css';
 
 const Meme = () => {
     const folders = [
@@ -91,72 +94,70 @@ const Meme = () => {
         },
     ];
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(null);
+    const [folderModalIsOpen, setFolderModalIsOpen] = useState(false);
+    const [imageModals, setImageModals] = useState([]);
     const [currentFolder, setCurrentFolder] = useState(null);
 
-    const openModal = (file) => {
-        setModalContent(file);
-        setModalIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalIsOpen(false);
-        setModalContent(null);
-    };
-
-    const openFolder = (folder) => {
+    const openFolderModal = (folder) => {
         setCurrentFolder(folder);
+        setFolderModalIsOpen(true);
     };
 
-    const goBack = () => {
+    const closeFolderModal = () => {
+        setFolderModalIsOpen(false);
         setCurrentFolder(null);
     };
 
+    const openImageModal = (file) => {
+        setImageModals([...imageModals, { ...file, id: Date.now() }]);
+    };
+
+    const closeImageModal = (id) => {
+        setImageModals(imageModals.filter(modal => modal.id !== id));
+    };
+
     return (
-        <div>
-            <div className="window-content">
-                {currentFolder ? (
-                    <div>
-                        <button className="image-button" onClick={goBack}>Back</button>
-                        <ul>
-                            {currentFolder.content.map((file, index) => (
-                                <li key={index}>
-                                    <button className="image-button" onClick={() => openModal(file)}>
-                                        {file.name}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
+        <div className="window-content">
+            <div className="folder-view">
+                {folders.map((folder, index) => (
+                    <div key={index} className="folder" onClick={() => openFolderModal(folder)}>
+                        <img src={FolderIcon} alt="Folder Icon" />
+                        <p>{folder.name}</p>
                     </div>
-                ) : (
-                    <ul>
-                        {folders.map((folder, index) => (
-                            <li key={index}>
-                                <button className="image-button" onClick={() => openFolder(folder)}>
-                                    {folder.name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                ))}
             </div>
-            {modalIsOpen && (
-                <ModalWindow onClose={closeModal} title={modalContent.name}>
-                    {modalContent.url.endsWith('.mp4') ? (
-                        <video controls style={{ maxWidth: '100%', height: 'auto' }}>
-                            <source src={modalContent.url} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    ) : (
-                        <img src={modalContent.url} alt={modalContent.name} style={{ maxWidth: '100%', height: 'auto' }} />
-                    )}
+
+            {folderModalIsOpen && (
+                <ModalWindow onClose={closeFolderModal} title={currentFolder.name}>
+                    <div>
+                        <div className="folder-view">
+                            {currentFolder.content.map((file, index) => (
+                                <div key={index} className="folder" onClick={() => openImageModal(file)}>
+                                    <img src={file.url} alt={file.name} className="file-icon" />
+                                    <p>{file.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </ModalWindow>
             )}
+
+            {imageModals.map(modal => (
+                <ModalWindow key={modal.id} onClose={() => closeImageModal(modal.id)} title={modal.name}>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                        {modal.url.endsWith('.mp4') ? (
+                            <video controls style={{ maxWidth: '100%', height: 'auto' }}>
+                                <source src={modal.url} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        ) : (
+                            <img src={modal.url} alt={modal.name} style={{ maxWidth: '100%', height: 'auto' }} />
+                        )}
+                    </div>
+                </ModalWindow>
+            ))}
         </div>
     );
 };
 
 export default Meme;
-
-

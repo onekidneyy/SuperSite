@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ModalWindow from './ModalWindow';
+import '../window/WindowStyles.css';
+import '../styles/FolderView.css';
+
 
 const RoadMa = () => {
     const images = [
@@ -23,15 +26,14 @@ const RoadMa = () => {
     return (
         <div>
             <div className="window-content">
-                <ul>
+                <div className="folder-view">
                     {images.map((image, index) => (
-                        <li key={index}>
-                            <button className="image-button" onClick={() => openModal(image)}>
-                                {image.name}
-                            </button>
-                        </li>
+                        <div key={index} className="folder" onClick={() => openModal(image)}>
+                            <img src={image.url} alt={image.name} className="file-icon" />
+                            <p>{image.name}</p>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
             {modalIsOpen && (
                 <ModalWindow onClose={closeModal} title={modalContent.name}>

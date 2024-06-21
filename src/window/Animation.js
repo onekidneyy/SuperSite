@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ModalWindow from './ModalWindow';
+import '../window/WindowStyles.css';
+import '../styles/FolderView.css';
 
 const Animation = () => {
     const media = [
@@ -24,26 +26,21 @@ const Animation = () => {
     return (
         <div>
             <div className="window-content">
-                <ul>
+                <div className="folder-view">
                     {media.map((item, index) => (
-                        <li key={index}>
-                            <button className="media-button" onClick={() => openModal(item)}>
-                                {item.name}
-                            </button>
-                        </li>
+                        <div key={index} className="folder" onClick={() => openModal(item)}>
+                            <video className="file-icon" src={item.url} />
+                            <p>{item.name}</p>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
             {modalIsOpen && (
                 <ModalWindow onClose={closeModal} title={modalContent.name}>
-                    {modalContent.type === 'image' ? (
-                        <img src={modalContent.url} alt={modalContent.name} style={{ maxWidth: '100%', height: 'auto' }} />
-                    ) : (
-                        <video controls style={{ maxWidth: '100%', height: 'auto' }}>
-                            <source src={modalContent.url} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    )}
+                    <video controls style={{ maxWidth: '100%', height: 'auto' }}>
+                        <source src={modalContent.url} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 </ModalWindow>
             )}
         </div>
@@ -51,6 +48,7 @@ const Animation = () => {
 };
 
 export default Animation;
+
 
 
 

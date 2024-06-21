@@ -23,39 +23,20 @@ import RoadMa from './window/RoadMa';
 import StartMenu from './StartMenu';
 
 const App = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
+  const [windows, setWindows] = useState([]);
   const [startMenuOpen, setStartMenuOpen] = useState(false);
 
-  const openModal = (content) => {
-    setModalContent(content);
-    setModalIsOpen(true);
+  const openApp = (component, title) => {
+    setStartMenuOpen(false);
+    setWindows([...windows, { content: component, title: title, id: windows.length }]); // Add the new window to the array
   };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setModalContent(null);
+  const closeWindow = (id) => {
+    setWindows(windows.filter(window => window.id !== id));
   };
 
   const toggleStartMenu = () => {
     setStartMenuOpen(!startMenuOpen);
-  };
-
-  const openApp = (app) => {
-    setStartMenuOpen(false);
-    switch (app) {
-      case 'Animation':
-        openModal(<Animation />);
-        break;
-      case 'Meme':
-        openModal(<Meme />);
-        break;
-      case 'RoadMap':
-        openModal(<RoadMa />);
-        break;
-      default:
-        break;
-    }
   };
 
   return (
@@ -75,18 +56,18 @@ const App = () => {
             </TaskbarIcons>
           </div>
           <TaskbarRight>
-            <span>SuperSite V1.0</span>
+            <span>SuperSite V1.2</span>
           </TaskbarRight>
         </StyledTaskbar>
-        {startMenuOpen && <StartMenu onOpenApp={openApp} />}
+        {startMenuOpen && <StartMenu onOpenApp={(app) => openApp(app.component, app.title)} />}
         <div className="icon-container">
           <div className="icon-row">
-            <div className="desktop-icon" onClick={() => openModal(<Animation />)}>
+            <div className="desktop-icon" onClick={() => openApp(<Animation />, 'Animation')}>
               <img src={Animations} alt="Animations" />
               <p>Animations</p>
             </div>
             <div className="desktop-icon">
-              <a href=" https://twitter.com/SUPERSSOLANA" target="_blank" rel="noopener noreferrer">
+              <a href="https://twitter.com/SUPERSSOLANA" target="_blank" rel="noopener noreferrer">
                 <img src={Twitter} alt="Twitter" />
                 <p>Twitter</p>
               </a>
@@ -99,13 +80,13 @@ const App = () => {
                 <p>Instagram</p>
               </a>
             </div>
-            <div className="desktop-icon" onClick={() => openModal(<Meme />)}>
+            <div className="desktop-icon" onClick={() => openApp(<Meme onClose={() => closeWindow(0)} />, 'Meme')}>
               <img src={Memes} alt="Memes" />
               <p>Memes</p>
             </div>
           </div>
           <div className="icon-row">
-            <div className="desktop-icon" onClick={() => openModal(<RoadMa />)}>
+            <div className="desktop-icon" onClick={() => openApp(<RoadMa />, 'RoadMap')}>
               <img src={RoadMap} alt="RoadMap" />
               <p>RoadMap</p>
             </div>
@@ -123,24 +104,19 @@ const App = () => {
             <p>Jeet</p>
           </a>
         </div>
-        {modalIsOpen && <ModalWindow onClose={closeModal}>{modalContent}</ModalWindow>}
+        {windows.map((window, index) => (
+          <ModalWindow
+            key={window.id}
+            onClose={() => closeWindow(window.id)}
+            title={window.title}
+            index={index} // Pass the index to calculate the offset
+          >
+            {window.content}
+          </ModalWindow>
+        ))}
       </ThemeProvider>
     </div>
   );
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
