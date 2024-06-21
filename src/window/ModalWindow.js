@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Rnd } from 'react-rnd';
 import './WindowStyles.css';
 
 const ModalWindow = ({ children, onClose, title, index }) => {
     const [dimensions, setDimensions] = useState({ width: 500, height: 300 });
 
-    const calculateCenterPosition = () => {
+    const calculateCenterPosition = useCallback(() => {
         const offset = index * 30; // Change this value to adjust the offset between modals
         const x = (window.innerWidth - dimensions.width) / 2 + offset;
         const y = (window.innerHeight - dimensions.height) / 2 + offset;
         return { x, y };
-    };
+    }, [dimensions.width, dimensions.height, index]);
 
     const [position, setPosition] = useState(calculateCenterPosition());
 
     useEffect(() => {
         setPosition(calculateCenterPosition());
-    }, [dimensions, index]);
+    }, [dimensions, calculateCenterPosition]);
 
     useEffect(() => {
         const handleResize = () => {
