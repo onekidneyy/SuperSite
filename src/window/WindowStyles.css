@@ -4,7 +4,7 @@
     background-color: #c3c3c3;
     font-family: 'MS Sans Serif';
     font-size: 14px;
-    position: relative;
+    position: fixed;
 }
 
 .title-bar {
@@ -75,4 +75,16 @@
     cursor: pointer;
     font-size: inherit;
     font-family: inherit;
+}
+
+.custom-rnd {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.custom-rnd>.react-draggable {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

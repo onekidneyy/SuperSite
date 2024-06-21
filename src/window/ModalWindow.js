@@ -3,7 +3,7 @@ import { Rnd } from 'react-rnd';
 import './WindowStyles.css';
 
 const ModalWindow = ({ children, onClose, title, index }) => {
-    const [dimensions, setDimensions] = useState({ width: 500, height: 300 });
+    const [dimensions, setDimensions] = useState({ width: 300, height: 300 });
 
     const calculateCenterPosition = useCallback(() => {
         const offset = index * 30; // Change this value to adjust the offset between modals
